@@ -15,11 +15,11 @@ pipeline {
         stage('Install Python & Create Virtual Env') {
             steps {
                 sh '''
-                sudo apt-get update
-                sudo apt-get install -y python3 python3-pip python3-venv
+                sudo yum update -y
+                sudo yum install -y python3 python3-pip
 
                 python3 -m venv ${VENV_DIR}
-                . ${VENV_DIR}/bin/activate
+                source ${VENV_DIR}/bin/activate
 
                 pip install --upgrade pip
                 pip install flask opencv-python ultralytics
@@ -30,7 +30,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 sh '''
-                . ${VENV_DIR}/bin/activate
+                source ${VENV_DIR}/bin/activate
                 python3 app.py
                 '''
             }
