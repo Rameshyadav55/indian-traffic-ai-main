@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                 sudo yum update -y
-                sudo yum install -y python3 python3-pip
+                sudo yum install -y python3 python3-pip mesa-libGL
 
                 python3 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
