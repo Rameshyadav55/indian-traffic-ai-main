@@ -41,5 +41,3 @@ def uploaded_file(filename):
 if __name__ == '__main__':
     os.environ["YOLO_CONFIG_DIR"] = "/tmp"
     app.run(host='0.0.0.0', port=5000)
-
-
